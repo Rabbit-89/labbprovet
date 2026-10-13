@@ -1,3 +1,5 @@
+[![CI](https://github.com/<användare>/<repo>/actions/workflows/ci.yml/badge.svg)](https://github.com/<användare>/<repo>/actions/workflows/ci.yml)
+
 # Padelhallen – Mina sidor
 
 Padelhallen Sundbys medlemsportal: se dina bokningar, boka bana och läs meddelanden från hallen.
