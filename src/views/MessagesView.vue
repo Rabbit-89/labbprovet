@@ -6,8 +6,7 @@
     <div v-else>
       <article v-for="m in messages" :key="m.id" class="card">
         <p class="hint">{{ formatDate(m.date) }} · {{ m.from }}</p>
-        <!-- v-html så att radbrytningar och fetstil från hallen visas rätt -->
-        <p v-html="m.text"></p>
+        <p class="message-text">{{ m.text }}</p>
       </article>
       <p v-if="messages.length === 0" class="hint">Inga meddelanden.</p>
     </div>
@@ -26,10 +25,16 @@ const error = ref(null)
 onMounted(async () => {
   try {
     messages.value = await fetchMessages()
-  } catch (e) {
+  } catch {
     error.value = 'Kunde inte hämta meddelanden.'
   } finally {
     loading.value = false
   }
 })
 </script>
+
+<style scoped>
+.message-text {
+  white-space: pre-line;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="topbar" v-if="$route.path !== '/login'">
+    <header v-if="$route.path !== '/login'" class="topbar">
       <div class="topbar-inner container">
         <span class="brand">Padelhallen</span>
         <nav>
