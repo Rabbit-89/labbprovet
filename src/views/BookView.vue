@@ -9,11 +9,13 @@
         <option>Bana 3</option>
       </select>
       <label for="date" class="hint">Datum</label>
-      <input id="date" v-model="date" type="date">
+      <input id="date" v-model="date" type="date" />
       <label for="partner" class="hint">Medspelare</label>
-      <input id="partner" v-model="partner" placeholder="Namn">
+      <input id="partner" v-model="partner" placeholder="Namn" />
       <p v-if="error" role="alert" class="error">{{ error }}</p>
-      <p v-if="done" role="status">Bokningen är mottagen. Du får ett meddelande med bekräftelsen.</p>
+      <p v-if="done" role="status">
+        Bokningen är mottagen. Du får ett meddelande med bekräftelsen.
+      </p>
       <button class="btn" type="submit" :disabled="busy">{{ busy ? 'Skickar…' : 'Boka' }}</button>
     </form>
   </div>
@@ -41,8 +43,7 @@ const submit = async () => {
   try {
     await book({ court: court.value, date: date.value, partner: partner.value.trim() })
     done.value = true
-  } catch (e) {
-    console.log(e)
+  } catch {
     error.value = 'Bokningen gick inte att skicka. Försök igen.'
   } finally {
     busy.value = false
