@@ -9,7 +9,7 @@
         <option>Bana 3</option>
       </select>
       <label for="date" class="hint">Datum</label>
-      <input id="date" type="date" v-model="date">
+      <input id="date" v-model="date" type="date">
       <label for="partner" class="hint">Medspelare</label>
       <input id="partner" v-model="partner" placeholder="Namn">
       <p v-if="error" role="alert" class="error">{{ error }}</p>
@@ -42,6 +42,7 @@ const submit = async () => {
     await book({ court: court.value, date: date.value, partner: partner.value.trim() })
     done.value = true
   } catch (e) {
+    console.log(e)
     error.value = 'Bokningen gick inte att skicka. Försök igen.'
   } finally {
     busy.value = false

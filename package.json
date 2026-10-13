@@ -9,7 +9,11 @@
     "api": "node mock-api/server.js",
     "test": "vitest",
     "test:run": "vitest run",
-    "prov": "node grading/prov.js"
+    "prov": "node grading/prov.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "chart.js": "^4.4.7",

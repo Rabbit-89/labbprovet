@@ -4,9 +4,9 @@
       <h1>Padelhallen</h1>
       <p class="hint" style="margin-bottom: 16px">Sundby · Mina sidor</p>
       <label for="email">E-postadress</label>
-      <input id="email" type="email" v-model="email" autocomplete="username">
+      <input id="email" v-model="email" type="email" autocomplete="username">
       <label for="password">Lösenord</label>
-      <input id="password" type="password" v-model="password" autocomplete="current-password">
+      <input id="password" v-model="password" type="password" autocomplete="current-password">
       <p v-if="error" role="alert" class="error">{{ error }}</p>
       <button class="btn" style="width:100%" type="submit" :disabled="busy">{{ busy ? 'Loggar in…' : 'Logga in' }}</button>
     </form>

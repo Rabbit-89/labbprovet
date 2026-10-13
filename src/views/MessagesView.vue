@@ -26,7 +26,7 @@ const error = ref(null)
 onMounted(async () => {
   try {
     messages.value = await fetchMessages()
-  } catch (e) {
+  } catch {
     error.value = 'Kunde inte hämta meddelanden.'
   } finally {
     loading.value = false

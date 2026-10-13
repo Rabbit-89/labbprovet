@@ -3,7 +3,7 @@
     <h1>Mina bokningar</h1>
     <div class="card">
       <label for="search" class="hint">Sök bana eller medspelare</label>
-      <input id="search" type="search" @input="onSearch" placeholder="T.ex. Bana 2">
+      <input id="search" type="search" placeholder="T.ex. Bana 2" @input="onSearch">
       <p v-if="bookings.loading">Laddar…</p>
       <p v-else-if="bookings.error" role="alert" class="error">{{ bookings.error }}</p>
       <table v-else-if="bookings.bookings">

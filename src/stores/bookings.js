@@ -14,6 +14,7 @@ export const useBookingsStore = defineStore('bookings', () => {
     try {
       bookings.value = await api.fetchBookings()
     } catch (e) {
+      console.log(e)
       error.value = 'Kunde inte hämta dina bokningar just nu.'
     } finally {
       loading.value = false
@@ -24,6 +25,7 @@ export const useBookingsStore = defineStore('bookings', () => {
     try {
       history.value = await api.fetchHistory()
     } catch (e) {
+      console.log(e)
       history.value = null
     }
   }
