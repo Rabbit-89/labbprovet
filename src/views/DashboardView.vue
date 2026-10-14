@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ greeting }}</h1>
-    <img src="../assets/hero.jpg" class="hero" alt="" loading="lazy">
+    <img src="../assets/hero.webp" class="hero" alt="" width="1200" height="700" />
 
     <div class="grid">
       <div class="card">
@@ -39,10 +39,16 @@ const bookings = useBookingsStore()
 
 const greeting = computed(() => (auth.name ? `Hej ${auth.name.split(' ')[0]}!` : 'Hej!'))
 const all = computed(() => bookings.bookings || [])
-const upcomingCount = computed(() => all.value.filter((b) => bookingStatus(b) === 'Kommande').length)
+const upcomingCount = computed(
+  () => all.value.filter((b) => bookingStatus(b) === 'Kommande').length
+)
 const playedCount = computed(() => all.value.filter((b) => bookingStatus(b) === 'Spelad').length)
 const feeTotal = computed(() =>
-  formatAmount(all.value.filter((b) => b.cancelled).reduce((sum, b) => sum + cancelFee(b.date, b.cancelledAt), 0))
+  formatAmount(
+    all.value
+      .filter((b) => b.cancelled)
+      .reduce((sum, b) => sum + cancelFee(b.date, b.cancelledAt), 0)
+  )
 )
 
 onMounted(() => {
@@ -52,5 +58,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.hero { width: 100%; border-radius: 10px; margin-bottom: 18px; }
+.hero {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
 </style>
