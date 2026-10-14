@@ -4,11 +4,13 @@
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
-import Chart from 'chart.js/auto'
+import { Chart, BarController, BarElement, CategoryScale, Legend, LinearScale } from 'chart.js'
+
+Chart.register(BarController, BarElement, CategoryScale, LinearScale, Legend)
 
 const props = defineProps({
   months: { type: Array, required: true },
-  values: { type: Array, required: true }
+  values: { type: Array, required: true },
 })
 
 const canvas = ref(null)
@@ -19,9 +21,9 @@ onMounted(() => {
     type: 'bar',
     data: {
       labels: props.months,
-      datasets: [{ label: 'Bokningar', data: props.values, backgroundColor: '#e8642b' }]
+      datasets: [{ label: 'Bokningar', data: props.values, backgroundColor: '#e8642b' }],
     },
-    options: { responsive: true, plugins: { legend: { display: false } } }
+    options: { responsive: true, plugins: { legend: { display: false } } },
   })
 })
 
